@@ -29,7 +29,7 @@ for coordsline in coords :
 		scriptfile.write('坐标：' + mapdict[coord] + '\r\n')
 		scriptfile.write('鼠标：左键\r\n')
 		scriptfile.write('延时：200\r\n')
-	scriptfile.write('延时：2000\r\n')
+	scriptfile.write('延时：3000\r\n')
 
 scriptfile.close()
 
