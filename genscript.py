@@ -25,11 +25,11 @@ def getmapdict() :
 
 def genscript(level, mapdict, mDelay, qDelay) :
 	# script file
-	scriptfile = './script_' + str(level) + '.txt'
+	scriptfile = './scripts/script_' + str(level) + '.txt'
 	scriptfile = open(scriptfile, 'w+')
 	scriptfile.write('循环：1\r\n')
 	# customed coordinates file
-	coordfile = './coord_' + str(level) + '.txt'
+	coordfile = './coordinates/coord_' + str(level) + '.txt'
 	coordfile = open(coordfile, 'r')
 	coords = coordfile.readlines()
 	coordfile.close()
