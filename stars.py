@@ -279,7 +279,9 @@ for i in range(len(acctCtx)) :
 
 if __name__ == '__main__' :
 	print '---------- accounts ----------'
-	print accountList
+	outList = accountList
+	outList.sort()
+	print outList
 	print '---------- 1. Spain ----------'
 	for i in range(countSpain) :
 		namenum = '%s (%d)' %(nameSpain[i], numSpain[i])
