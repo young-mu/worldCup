@@ -52,11 +52,11 @@ def genscriptall(start, end, mapdict, mDelay, qDelay, lDelay) :
 	for idx in range(start, end + 1, 1) :
 		genscript(idx, mapdict, mDelay, qDelay)
 	# script file
-	scriptfile = './script_all.txt'
+	scriptfile = './scripts/script_all.txt'
 	scriptfile = open(scriptfile, 'w+')
 	scriptfile.write('循环：1\r\n')
 	for idx in range(start, end + 1, 1) :
-		tmpfile = './script_' + str(idx) + '.txt'
+		tmpfile = './scripts/script_' + str(idx) + '.txt'
 		tmpfile = open(tmpfile, 'r')
 		discard = tmpfile.readline()
 		scripts = tmpfile.readlines()

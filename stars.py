@@ -281,6 +281,7 @@ if __name__ == '__main__' :
 	print '---------- accounts ----------'
 	outList = accountList
 	outList.sort()
+	print "number : " + str(len(outList))
 	print outList
 	print '---------- 1. Spain ----------'
 	for i in range(countSpain) :
