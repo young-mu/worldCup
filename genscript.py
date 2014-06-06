@@ -6,7 +6,7 @@ import sys, string
 # mouse delay
 mDelay = 300
 # question delay
-qDelay = 1500
+qDelay = 2000
 # level delay
 lDelay = 2000
 
