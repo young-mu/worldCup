@@ -286,64 +286,112 @@ if __name__ == '__main__' :
 	print '---------- 1. Spain ----------'
 	for i in range(countSpain) :
 		namenum = '%s (%d)' %(nameSpain[i], numSpain[i])
-		print namenum.ljust(25) + '\t\t' + str(acctSpain[i])
+		if (len(sys.argv) == 2 and sys.argv[1] == 'a') :
+			print namenum.ljust(25) + '\t\t' + str(acctSpain[i])
+		else :
+			print namenum
 	print '---------- 2. Brazil ----------'
 	for i in range(countBrazil) :
 		namenum = '%s (%d)' %(nameBrazil[i], numBrazil[i])
-		print namenum.ljust(25) + '\t\t' + str(acctBrazil[i])
+		if (len(sys.argv) == 2 and sys.argv[1] == 'a') :
+			print namenum.ljust(25) + '\t\t' + str(acctBrazil[i])
+		else :
+			print namenum
 	print '---------- 3. Germany  ----------'
 	for i in range(countGermany) :
 		namenum = '%s (%d)' %(nameGermany[i], numGermany[i])
-		print namenum.ljust(25) + '\t\t' + str(acctGermany[i])
+		if (len(sys.argv) == 2 and sys.argv[1] == 'a') :
+			print namenum.ljust(25) + '\t\t' + str(acctGermany[i])
+		else :
+			print namenum
 	print '---------- 4. Argentina ----------'
 	for i in range(countArgentina) :
 		namenum = '%s (%d)' %(nameArgentina[i], numArgentina[i])
-		print namenum.ljust(25) + '\t\t' + str(acctArgentina[i])
+		if (len(sys.argv) == 2 and sys.argv[1] == 'a') :
+			print namenum.ljust(25) + '\t\t' + str(acctArgentina[i])
+		else :
+			print namenum
 	print '---------- 5. England ----------'
 	for i in range(countEngland) :
 		namenum = '%s (%d)' %(nameEngland[i], numEngland[i])
-		print namenum.ljust(25) + '\t\t' + str(acctEngland[i])
+		if (len(sys.argv) == 2 and sys.argv[1] == 'a') :
+			print namenum.ljust(25) + '\t\t' + str(acctEngland[i])
+		else :
+			print namenum
 	print '---------- 6. Italy ----------'
 	for i in range(countItaly) :
 		namenum = '%s (%d)' %(nameItaly[i], numItaly[i])
-		print namenum.ljust(25) + '\t\t' + str(acctItaly[i])
+		if (len(sys.argv) == 2 and sys.argv[1] == 'a') :
+			print namenum.ljust(25) + '\t\t' + str(acctItaly[i])
+		else :
+			print namenum
 	print '---------- 7. France ----------'
 	for i in range(countFrance) :
 		namenum = '%s (%d)' %(nameFrance[i], numFrance[i])
-		print namenum.ljust(25) + '\t\t' + str(acctFrance[i])
+		if (len(sys.argv) == 2 and sys.argv[1] == 'a') :
+			print namenum.ljust(25) + '\t\t' + str(acctFrance[i])
+		else :
+			print namenum
 	print '---------- 8. Portugal ----------'
 	for i in range(countPortugal) :
 		namenum = '%s (%d)' %(namePortugal[i], numPortugal[i])
-		print namenum.ljust(20) + '\t\t' + str(acctPortugal[i])
+		if (len(sys.argv) == 2 and sys.argv[1] == 'a') :
+			print namenum.ljust(20) + '\t\t' + str(acctPortugal[i])
+		else :
+			print namenum
 	print '---------- 9. Holland ----------'
 	for i in range(countHolland) :
 		namenum = '%s (%d)' %(nameHolland[i], numHolland[i])
-		print namenum.ljust(25) + '\t\t' + str(acctHolland[i])
+		if (len(sys.argv) == 2 and sys.argv[1] == 'a') :
+			print namenum.ljust(25) + '\t\t' + str(acctHolland[i])
+		else :
+			print namenum
 	print '---------- 10. Allstar ----------'
 	for i in range(countAllstar) :
 		namenum = '%s (%d)' %(nameAllstar[i], numAllstar[i])
-		print namenum.ljust(25) + '\t\t' + str(acctAllstar[i])
+		if (len(sys.argv) == 2 and sys.argv[1] == 'a') :
+			print namenum.ljust(25) + '\t\t' + str(acctAllstar[i])
+		else :
+			print namenum
 	print '---------- 11. Uruguay ----------'
 	for i in range(countUruguay) :
 		namenum = '%s (%d)' %(nameUruguay[i], numUruguay[i])
-		print namenum.ljust(25) + '\t\t' + str(acctUruguay[i])
+		if (len(sys.argv) == 2 and sys.argv[1] == 'a') :
+			print namenum.ljust(25) + '\t\t' + str(acctUruguay[i])
+		else :
+			print namenum
 	print '---------- 12. Belgium ----------'
 	for i in range(countBelgium) :
 		namenum = '%s (%d)' %(nameBelgium[i], numBelgium[i])
-		print namenum.ljust(25) + '\t\t' + str(acctBelgium[i])
+		if (len(sys.argv) == 2 and sys.argv[1] == 'a') :
+			print namenum.ljust(25) + '\t\t' + str(acctBelgium[i])
+		else :
+			print namenum
 	print '---------- 13. Croatia ----------'
 	for i in range(countCroatia) :
 		namenum = '%s (%d)' %(nameCroatia[i], numCroatia[i])
-		print namenum.ljust(25) + '\t\t' + str(acctCroatia[i])
+		if (len(sys.argv) == 2 and sys.argv[1] == 'a') :
+			print namenum.ljust(25) + '\t\t' + str(acctCroatia[i])
+		else :
+			print namenum
 	print '---------- 14. Chile ----------'
 	for i in range(countChile) :
 		namenum = '%s (%d)' %(nameChile[i], numChile[i])
-		print namenum.ljust(25) + '\t\t' + str(acctChile[i])
+		if (len(sys.argv) == 2 and sys.argv[1] == 'a') :
+			print namenum.ljust(25) + '\t\t' + str(acctChile[i])
+		else :
+			print namenum
 	print '---------- 15. Japan ----------'
 	for i in range(countJapan) :
 		namenum = '%s (%d)' %(nameJapan[i], numJapan[i])
-		print namenum.ljust(25) + '\t\t' + str(acctJapan[i])
+		if (len(sys.argv) == 2 and sys.argv[1] == 'a') :
+			print namenum.ljust(25) + '\t\t' + str(acctJapan[i])
+		else :
+			print namenum
 	print '---------- 16. Korea ----------'
 	for i in range(countKorea) :
 		namenum = '%s (%d)' %(nameKorea[i], numKorea[i])
-		print namenum.ljust(25) + '\t\t' + str(acctKorea[i])
+		if (len(sys.argv) == 2 and sys.argv[1] == 'a') :
+			print namenum.ljust(25) + '\t\t' + str(acctKorea[i])
+		else :
+			print namenum
