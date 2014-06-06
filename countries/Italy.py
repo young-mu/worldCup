@@ -7,14 +7,14 @@ import re
 countItaly = 8
 # stars' names
 nameItaly = {}
-nameItaly[0] = '罗伊斯'
-nameItaly[1] = '施魏因斯泰格'
-nameItaly[2] = '厄齐尔'
-nameItaly[3] = '拉姆'
-nameItaly[4] = '格策'
-nameItaly[5] = '穆勒'
-nameItaly[6] = '克洛泽'
-nameItaly[7] = '诺伊尔'
+nameItaly[0] = '马尔基西奥'
+nameItaly[1] = '德罗西'
+nameItaly[2] = '巴尔扎利'
+nameItaly[3] = '皮尔洛'
+nameItaly[4] = '巴洛特利'
+nameItaly[5] = '基耶利尼'
+nameItaly[6] = '蒙托利沃'
+nameItaly[7] = '布冯'
 # regular expression
 rItaly0 = nameItaly[0] + '.*?× (\d)'
 rItaly0 = re.compile(rItaly0, re.S)
