@@ -9,6 +9,14 @@ mDelay = 300
 qDelay = 2000
 # level delay
 lDelay = 2000
+# up arrow position
+dnPos = '1271-750'
+# next level position
+ntPos = '940-730'
+# down arrow position
+upPos = '1271-70'
+# click number
+clickNum = 3
 
 def getmapdict() :
 	# coordinate mapping (map customed coordinates to screen coordinates) 
@@ -23,91 +31,97 @@ def getmapdict() :
 		mapdict[maplist[0]] = maplist[1]
 	return mapdict
 
-def genscript(level, mapdict, mDelay, qDelay) :
-	# script file
-	scriptfile = './scripts/script_' + str(level) + '.txt'
-	scriptfile = open(scriptfile, 'w+')
-	scriptfile.write('循环：1\r\n')
+def genscript(level, start, mapdict, mDelay, qDelay) :
 	# customed coordinates file
 	coordfile = './coordinates/coord_' + str(level) + '.txt'
 	coordfile = open(coordfile, 'r')
+	for i in range(start - 1) :
+		discard = coordfile.readline()
 	coords = coordfile.readlines()
 	coordfile.close()
+	script = ''
 	for coordsline in coords :
 		coordsline = coordsline[4:].strip('\r\n')
 		coordslist = coordsline.split(', ')
 		# one answer includes multiple coordinates
 		for coord in coordslist :
-			scriptfile.write('坐标：' + mapdict[coord] + '\r\n')
-			scriptfile.write('鼠标：左键\r\n')
-			scriptfile.write('延时：' + str(mDelay) + '\r\n')
-		scriptfile.write('延时：' + str(qDelay) + '\r\n')
-	scriptfile.close()
+			script = script + '坐标：' + mapdict[coord] + '\r\n'
+			script = script + '鼠标：左键\r\n'
+			script = script + '延时：' + str(mDelay) + '\r\n'
+		script = script + '延时：' + str(qDelay) + '\r\n'
+	return script
 
-def genscriptall(start, end, mapdict, mDelay, qDelay, lDelay) :
+def genscriptall(level, start, mapdict, mDelay, qDelay, lDelay, upPos, ntPos, dnPos, clickNum) :
+	assert type(level) == int
 	assert type(start) == int
-	assert type(end) == int
 	assert type(mapdict) == dict
 	assert type(qDelay) == int
-	for idx in range(start, end + 1, 1) :
-		genscript(idx, mapdict, mDelay, qDelay)
+	assert type(lDelay) == int
+	assert type(upPos) == str
+	assert type(ntPos) == str
+	assert type(dnPos) == str
+	assert type(clickNum) == int
 	# script file
-	scriptfile = './scripts/script_all.txt'
+	scriptfile = './scripts/script.txt'
 	scriptfile = open(scriptfile, 'w+')
 	scriptfile.write('循环：1\r\n')
-	for idx in range(start, end + 1, 1) :
-		tmpfile = './scripts/script_' + str(idx) + '.txt'
-		tmpfile = open(tmpfile, 'r')
-		discard = tmpfile.readline()
-		scripts = tmpfile.readlines()
-		for scriptline in scripts :
-			scriptfile.write(scriptline)
+	for idx in range(level, 7, 1) :
+		if (idx == level) :
+			scriptfile.write(genscript(idx, start, mapdict, mDelay, qDelay))
+		else :
+			scriptfile.write(genscript(idx, 1, mapdict, mDelay, qDelay))
 		# page down
-		scriptfile.write('坐标: 1271-750\r\n')
-		for i in range(3) :
+		scriptfile.write('坐标: ' + dnPos + '\r\n')
+		for i in range(clickNum) :
 			scriptfile.write('鼠标：左键\r\n')
 			scriptfile.write('延时：' + str(mDelay) + '\r\n')
 		scriptfile.write('延时：' + str(mDelay) + '\r\n')
 		# next game level
 		scriptfile.write('延时：' + str(lDelay) + '\r\n')
-		scriptfile.write('坐标：940-730\r\n')
+		scriptfile.write('坐标：' + ntPos + '\r\n')
 		scriptfile.write('鼠标：左键\r\n')
 		scriptfile.write('延时：' + str(mDelay) + '\r\n')
 		# page up
-		scriptfile.write('坐标：1271-70\r\n')
-		for i in range(3) :
+		scriptfile.write('坐标：' + upPos + '\r\n')
+		for i in range(clickNum) :
 			scriptfile.write('鼠标：左键\r\n')
 			scriptfile.write('延时：' + str(mDelay) + '\r\n')
 		scriptfile.write('延时：' + str(mDelay) + '\r\n')
 	scriptfile.close()	
 
+def chkArgv(level, start) :
+	assert type(level) == str
+	assert type(start) == str
+	level = string.atoi(level)
+	start = string.atoi(start)
+	if (level == 1 and start >= 1 and start <= 20) :
+		pass
+	elif (level == 2 and start >= 1 and start <= 20) :
+		pass
+	elif (level == 3 and start >= 1 and start <= 30) :
+		pass
+	elif (level == 4 and start >= 1 and start <= 40) :
+		pass
+	elif (level == 5 and start >= 1 and start <= 40) :
+		pass
+	elif (level == 6 and start >= 1 and start <= 50) :
+		pass
+	else :
+		return False
+	return True
+
 def printUsage() :
-	print "usage unaviliable. (usage : ./genscript.py [1|2|3|4|5|6|a start end])"
+	print "usage unaviliable. (usage : ./genscript.py level start])"
 	print "--------------------"
-	print "1~6 - 1~6 game level\na start end - multiple levels from start to end"
+	print "level (1, 2, 3, 4, 5, 6)\nstart (1-20, 1-20, 1-30, 1-40, 1-40, 1-50)"
 	print "--------------------"
 
 if __name__ == '__main__' :
 	mapdict = getmapdict()
-	if (len(sys.argv) == 2 and sys.argv[1] == '1') :
-		genscript(1, mapdict, mDelay, qDelay)
-	elif (len(sys.argv) == 2 and sys.argv[1] == '2') :
-		genscript(2, mapdict, mDelay, qDelay)
-	elif (len(sys.argv) == 2 and sys.argv[1] == '3') :
-		genscript(3, mapdict, mDelay, qDelay)
-	elif (len(sys.argv) == 2 and sys.argv[1] == '4') :
-		genscript(4, mapdict, mDelay, qDelay)
-	elif (len(sys.argv) == 2 and sys.argv[1] == '5') :
-		genscript(5, mapdict, mDelay, qDelay)
-	elif (len(sys.argv) == 2 and sys.argv[1] == '6') :
-		genscript(6, mapdict, mDelay, qDelay)
-	elif (len(sys.argv) == 4 and sys.argv[1] == 'a') :
+	if (len(sys.argv) == 3 and chkArgv(sys.argv[1], sys.argv[2])) :
+		level = string.atoi(sys.argv[1])
 		start = string.atoi(sys.argv[2])
-		end = string.atoi(sys.argv[3])
-		if (start <= end and start <=6 and start >= 1 and end <= 6 and end >= 1) :
-			genscriptall(start, end, mapdict, mDelay, qDelay, lDelay)
-		else :
-			print "unaviliable start and end."
+		genscriptall(level, start, mapdict, mDelay, qDelay, lDelay, upPos, ntPos, dnPos, clickNum)
 	else :
 		printUsage()
 
