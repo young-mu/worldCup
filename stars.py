@@ -27,13 +27,17 @@ starsCtx = starsFile.read()
 starsCtx = unicode(starsCtx, 'gb2312').encode('utf-8')
 
 # split into multiple accounts' context
-rSplit = re.compile(r"(.*?反馈信息举报)", re.S)
+rSplit = re.compile(r"(.*?反馈信息举报\r\n)", re.S)
 acctCtx = re.findall(rSplit, starsCtx)
+# remove repeated elements (the same accounts)
+acctCtx = list(set(acctCtx))
 # account regular expression
 rAccount = re.compile(r"(.*?)退出球星卡")
+accountList = []
 
 for i in range(len(acctCtx)) :
 	account = re.findall(rAccount, acctCtx[i])
+	accountList.append(account[0])
 	# 1. Spain
 	Spain = []
 	Spain.append(re.findall(rSpain0, acctCtx[i]))
@@ -274,6 +278,8 @@ for i in range(len(acctCtx)) :
 				acctKorea[j].append(account[0]) 
 
 if __name__ == '__main__' :
+	print '---------- accounts ----------'
+	print accountList
 	print '---------- 1. Spain ----------'
 	for i in range(countSpain) :
 		namenum = '%s (%d)' %(nameSpain[i], numSpain[i])
@@ -305,7 +311,7 @@ if __name__ == '__main__' :
 	print '---------- 8. Portugal ----------'
 	for i in range(countPortugal) :
 		namenum = '%s (%d)' %(namePortugal[i], numPortugal[i])
-		print namenum.ljust(25) + '\t\t' + str(acctPortugal[i])
+		print namenum.ljust(20) + '\t\t' + str(acctPortugal[i])
 	print '---------- 9. Holland ----------'
 	for i in range(countHolland) :
 		namenum = '%s (%d)' %(nameHolland[i], numHolland[i])
