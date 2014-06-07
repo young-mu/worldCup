@@ -5,9 +5,9 @@ import sys, string
 from coordmap import mapDict, down, ntlevel, up, clickNum
 
 # mouse delay
-mDelay = 500
+mDelay = 100
 # question delay
-qDelay = 3000
+qDelay = 3500
 # level delay
 lDelay = 2000
 
